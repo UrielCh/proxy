@@ -22,7 +22,6 @@ func main() {
 		if err != nil {
 			log.Fatalf("failt to read IP %s, Err: %v", *bind, err)
 		}
-		proxy.Bind = tcpAddr
 		proxy.Tr.DialContext = (&net.Dialer{LocalAddr: &net.TCPAddr{IP: tcpAddr.IP}}).DialContext
 	}
 	log.Printf("Listening %s", *addr)
